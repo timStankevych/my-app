@@ -1,26 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Accordion from './components/Accordion/Accordion';
+import {Rating, RatingValueType} from './components/Rating/Rating';
+import UncontrolledAccordion from './components/UncontrolledAccordion/UncontrolledAccordion';
+import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
+import {UncontrolledOnOff} from './components/UncontrolledOnOff/UncontrolledOnOff';
+import OnOff from './components/OnOff/OnOff';
+import {ItemType} from './components/Accordion/Accordion.stories';
+import {Select} from './components/Select/Select';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props: any) {
+    //сама функция
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    let [selectCollapsed, setSelectCollapsed] = useState<boolean>(false)
+    let [switchOn, setSwitchOn] = useState<boolean>(false)
+let selectArr = [
+    {title: 'Tim', value: 1},
+    {title: 'Bim', value: 2},
+    {title: 'Fim', value: 3},
+]
+
+    // возвращает JSX
+    return (
+        <div className={'App'}>
+            <PageTitle title={'This is App component'}/>
+            <PageTitle title={'My friends'}/>
+            {/*<Accordion titleValue={'Users'}*/}
+            {/*           collapsed={accordionCollapsed}*/}
+            {/*           onChange={() => {*/}
+            {/*               setAccordionCollapsed(!accordionCollapsed)*/}
+            {/*           }}*/}
+            {/*           items={menuAcc}*/}
+            {/*           onClick={() => {*/}
+            {/*           }}/>*/}
+            <UncontrolledAccordion titleValue={'Menu'}/>
+            {/*<Rating value={1} />*/}
+            {/*<UncontrolledRating defaultValue={0} onChange={setRatingValue}/>*/}
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
+            {/*<Rating value={0} />*/}
+            {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
+            {/*<UncontrolledOnOff onChange={setSwitchOn}/>{switchOn.toString()}*/}
+            {/*<Select items={selectArr} value={1} onChange={() => {}}/>*/}
+        </div>
+    );
+};
+
+type PageTitlePropsType = {
+    title: string
 }
+
+function PageTitle(props: PageTitlePropsType) {
+    console.log('AppTitle rendering')
+    return <h1>{props.title}</h1>
+}
+
+;
+
 
 export default App;
