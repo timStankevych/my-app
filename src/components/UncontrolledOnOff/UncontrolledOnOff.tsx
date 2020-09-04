@@ -5,7 +5,7 @@ type PropsType = {
     defaultOn?: boolean
 }
 
-export function UncontrolledOnOff(props: PropsType) {
+ function UncontrolledOnOffSecret(props: PropsType) {
 
     console.log("UncontrolledOnOff rendering")
 
@@ -55,4 +55,6 @@ export function UncontrolledOnOff(props: PropsType) {
         <div style={indicatorStyle}></div>
     </div>
 }
+
+export const UncontrolledOnOff = React.memo(UncontrolledOnOffSecret)
 

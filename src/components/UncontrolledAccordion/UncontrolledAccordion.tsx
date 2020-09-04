@@ -17,7 +17,7 @@ const reducer = (state: boolean, action: ActionType) => {
     return state;
 }
 
-function UncontrolledAccordion(props: AccordionPropsType) {
+function UncontrolledAccordionSecret(props: AccordionPropsType) {
     console.log('Accordion rendering')
 
     // let [collapsed, setCollapsed] = useState(false);
@@ -34,6 +34,7 @@ function UncontrolledAccordion(props: AccordionPropsType) {
     )
 }
 
+const UncontrolledAccordion = React.memo(UncontrolledAccordionSecret)
 
 type AccordionTitlePropsType = {
     title: string
