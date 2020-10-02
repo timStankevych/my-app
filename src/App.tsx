@@ -6,7 +6,6 @@ import UncontrolledAccordion from './components/UncontrolledAccordion/Uncontroll
 import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
 import {UncontrolledOnOff} from './components/UncontrolledOnOff/UncontrolledOnOff';
 import OnOff from './components/OnOff/OnOff';
-import {ItemType} from './components/Accordion/Accordion.stories';
 import {Select} from './components/Select/Select';
 
 function App(props: any) {
@@ -14,7 +13,7 @@ function App(props: any) {
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
-    let [selectCollapsed, setSelectCollapsed] = useState<boolean>(false)
+    // let [selectCollapsed, setSelectCollapsed] = useState<boolean>(false)
     let [switchOn, setSwitchOn] = useState<boolean>(false)
 let selectArr = [
     {title: 'Tim', value: 1},
@@ -37,12 +36,12 @@ let selectArr = [
             {/*           }}/>*/}
             <UncontrolledAccordion titleValue={'Menu'}/>
             {/*<Rating value={1} />*/}
-            {/*<UncontrolledRating defaultValue={0} onChange={setRatingValue}/>*/}
-            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
+            <UncontrolledRating defaultValue={0} onChange={setRatingValue}/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
             {/*<Rating value={0} />*/}
-            {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
-            {/*<UncontrolledOnOff onChange={setSwitchOn}/>{switchOn.toString()}*/}
-            {/*<Select items={selectArr} value={1} onChange={() => {}}/>*/}
+            <OnOff on={switchOn} onChange={setSwitchOn}/>
+            <UncontrolledOnOff onChange={setSwitchOn}/>{switchOn.toString()}
+            <Select items={selectArr} value={1} onChange={() => {}}/>
         </div>
     );
 };
